@@ -13,11 +13,13 @@ def stream_audio():
     if not url:
         return jsonify({"error": "Missing YouTube URL"}), 400
     try:
-        ydl_opts = {
-            "format": "bestaudio/best",
-            "quiet": True,
-            "skip_download": True,
-        }
+      ydl_opts = {
+    "format": "bestaudio/best",
+    "quiet": True,
+    "skip_download": True,
+    "cookiefile": "cookies.txt"
+}
+
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info = ydl.extract_info(url, download=False)
             return jsonify({"audioUrl": info["url"]})
