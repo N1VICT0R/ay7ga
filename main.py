@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return "✅ YouTube Audio API is Running."
+    return "✅ API is Running on Glitch"
 
 @app.route("/api/stream", methods=["GET"])
 def stream_audio():
@@ -25,4 +25,4 @@ def stream_audio():
         return jsonify({"error": str(e)}), 500
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8080)
+    app.run(host="0.0.0.0", port=3000)
